@@ -91,15 +91,15 @@
               title();
             }
             function title() {
-            if (window.location !== window.parent.location == true) {
-              parent.document.title = document.title;
-            };
-            var link = parent.document.querySelector("link[rel~='icon']");
-            if (!link) {
-              link = parent.document.createElement('link');
-              link.rel = 'icon';
-              parent.document.getElementsByTagName('head')[0].appendChild(link);
-            };
-            link.href = '../../../images/icon.png';
+              if (window.location !== window.parent.location == true) {
+                parent.document.title = document.title;
+                var link = parent.document.querySelector("link[rel~='icon']");
+                if (!link) {
+                  link = parent.document.createElement('link');
+                  link.rel = 'icon';
+                  parent.document.getElementsByTagName('head')[0].appendChild(link);
+                };
+                link.href = '../../../images/icon.png';
+              };
             }
             texture();
