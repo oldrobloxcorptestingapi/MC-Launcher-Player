@@ -1,0 +1,81 @@
+            function texture() {
+                var texturechoice = prompt(
+                    "Choose a texture pack: \n\n[1] - Default 1.5.2 \n[2] - Hypixel Pvp \n[3] - Bat Client \n[4] - Tight \n[5] - 1.16 \n[6] - 1.16 Modified \n[7] - 1.16 Dark \n[8] - 1.17 \n[9] - 1.17 Modified \n[10] - 1.17 Dark \n[11] - Rice \n[12] - Miami Private 1.8 \n\nMore coming soon \nTo select a resource pack, enter the number from inside the brackets below."
+                );
+
+                var texture = "../../../packs/default-1.5.2.epk";
+
+                //Default
+                if (texturechoice == "1") {
+                    texture = "../../../packs/default-1.5.2.epk";
+                }
+                
+                //Packs
+                else if (texturechoice == "2") {
+                    texture = "../../../packs/hypixel-pvp.epk";
+                }
+                else if (texturechoice == "3") {
+                    texture = "../../../packs/batClient.epk";
+                }
+                else if (texturechoice == "4") {
+                    texture = "../../../packs/tight.epk";
+                }
+                //1.16 packs
+                else if (texturechoice == "5") {
+                    texture = "../../../packs/1.16.epk";
+                }
+                else if (texturechoice == "6") {
+                    texture = "../../../packs/M1.16.epk";
+                }
+                else if (texturechoice == "7") {
+                    texture = "../../../packs/1.16D.epk";
+                }
+
+                //1.17 packs
+                else if (texturechoice == "8") {
+                    texture = "../../../packs/1.17.epk";
+                }
+                else if (texturechoice == "9") {
+                    texture = "../../../packs/M1.17.epk";
+                } 
+                else if (texturechoice == "10") {
+                    texture = "../../../packs/1.17D.epk";
+                }
+
+                //Ricefault
+                else if (texturechoice == "11") {
+                    texture = "../../../packs/Rice.epk";
+                }
+
+                //Miami Private
+                else if (texturechoice == "12") {
+                    texture = "../../../packs/Miami.Private.epk";
+                }                
+                
+
+                //Xray
+                else if (texturechoice == "xray" || texturechoice == "Xray") {
+                    texture = "../../../packs/x-ray.epk";
+                }                
+                
+                
+                var name="",motd="aa",ip="";
+                window.addEventListener("load", function () {
+                    window.minecraftOpts = [
+                        "game_frame",
+                        texture,btoa(atob("CgAACQAHc2VydmVycwoAAAABCAAKZm9yY2VkTU9URAAIU2VydmVyIDEBAAtoaWRlQWRkcmVzcwEIAAJpcAAod3NzOi8vd3d3LnNlcnZlcjEtZ2FtZS1jZW50cmFsLmdxL3NlcnZlcggABG5hbWUADEdhbWUgQ2VudHJhbAAA"). replace("motdhere",String.fromCharCode(motd.length)+motd).replace("namehere", String.fromCharCode(name.length)+name).replace("iphere",String.fromCharCode(ip. length)+ip))
+                    ];
+                    (function () {
+                        var q = window.location.search;
+                        if (typeof q === "string" && q.startsWith("?")) {
+                            q = new URLSearchParams(q);
+                            var s = q.get("server");
+                            if (s) window.minecraftOpts.push(s);
+                        }
+                    })();
+                    main();
+                });
+            }
+            texture();
+
+    
