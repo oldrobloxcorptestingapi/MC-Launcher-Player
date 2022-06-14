@@ -4,7 +4,6 @@
                 );
 
                 var texture = "../../../packs/default-1.5.2.epk";
-                document.title = document.title + " (Default)";
 
                 //Default
                 if (texturechoice == "1") {
@@ -104,4 +103,3 @@
             link.href = '../../../images/icon.png';
             }
             texture();
-    
