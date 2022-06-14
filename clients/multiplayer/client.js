@@ -8,54 +8,67 @@
                 //Default
                 if (texturechoice == "1") {
                     texture = "../../../packs/default-1.5.2.epk";
+                    document.title = document.title + " (Default)";
                 }
                 
                 //Packs
                 else if (texturechoice == "2") {
                     texture = "../../../packs/hypixel-pvp.epk";
+                    document.title = document.title + " (Hypixel)";
                 }
                 else if (texturechoice == "3") {
                     texture = "../../../packs/batClient.epk";
+                    document.title = document.title + " (Bat Client)";
                 }
                 else if (texturechoice == "4") {
                     texture = "../../../packs/tight.epk";
+                    document.title = document.title + " (Tight)";
                 }
                 //1.16 packs
                 else if (texturechoice == "5") {
                     texture = "../../../packs/1.16.epk";
+                    document.title = document.title + " (1.16)";
                 }
                 else if (texturechoice == "6") {
                     texture = "../../../packs/M1.16.epk";
+                    document.title = document.title + " (M1.16)";
                 }
                 else if (texturechoice == "7") {
                     texture = "../../../packs/1.16D.epk";
+                    document.title = document.title + " (1.16 Dark)";
                 }
 
                 //1.17 packs
                 else if (texturechoice == "8") {
                     texture = "../../../packs/1.17.epk";
+                    document.title = document.title + " (1.17)";
                 }
                 else if (texturechoice == "9") {
                     texture = "../../../packs/M1.17.epk";
+                    document.title = document.title + " (M1.17)";
                 } 
                 else if (texturechoice == "10") {
                     texture = "../../../packs/1.17D.epk";
+                    document.title = document.title + " (1.17 Dark)";
                 }
 
                 //Ricefault
                 else if (texturechoice == "11") {
                     texture = "../../../packs/Rice.epk";
+                    document.title = document.title + " (Rice)";
                 }
 
                 //Miami Private
                 else if (texturechoice == "12") {
                     texture = "../../../packs/Miami.Private.epk";
+                    document.title = document.title + " (Miami)";
                 }                
                 
 
                 //Xray
                 else if (texturechoice == "xray" || texturechoice == "Xray") {
                     texture = "../../../packs/x-ray.epk";
+                    document.title = document.title + " (X-Ray)";
                 }                
                 
                 
