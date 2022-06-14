@@ -87,6 +87,10 @@
                         }
                     })();
                     main();
+                });
+              title();
+            }
+            function title() {
             if (window.location !== window.parent.location == true) {
               parent.document.title = document.title;
             };
@@ -97,7 +101,6 @@
               parent.document.getElementsByTagName('head')[0].appendChild(link);
             };
             link.href = '../../../images/icon.png';
-                });
             }
             texture();
     
