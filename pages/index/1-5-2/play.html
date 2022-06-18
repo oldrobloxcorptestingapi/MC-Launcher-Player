@@ -32,6 +32,9 @@
       border-left: 1px solid #282828;
       border-right: 1px solid #282828;
     }
+    .topbaroptions1:hover {
+      color: grey;
+    }
     .topbaroptions2 {
       color: darkgrey;
       border-bottom: 5px solid white;
@@ -39,7 +42,10 @@
       background-color: #282828;
       border-top: 1px solid #282828;
       border-left: 1px solid #282828;
-      border-right: 1px solid #282828;
+      border-right: 1px solid #282828
+    }
+    .topbaroptions2:hover {
+      color: grey;
     }
     .title {
       color: white;
@@ -95,15 +101,22 @@
       font-size: 50px;
       z-index: 13;
     }
+    .right {float: right;}
   </style>
 </head>
 <body>
   
   <div class="topbar">
     <a class="title"><strong>MINECRAFT: 1.5.2</strong></a><br>
+    
     <button class="topbaroptions1">
       <strong>Play</strong>
     </button>
+    
+    <button class="topbaroptions2 right" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScZWyWARchON82Kk-xfX4DWJSUPfBHXAKpdcXZ4lMc1H69khg/viewform')" target="_blank">
+      <strong>Report Bugs</strong>
+    </button>
+    
   </div>
   <div class="content">
     <img src="../../../images/mc-logo-1-5-2.png">
@@ -131,6 +144,7 @@
         <option value="1.17D.epk">1.17 Dark</option>
         <option value="Rice.epk">Rice</option>
         <option value="Miami.Private.epk">Miami</option>
+        <option value="lemonClient.epk">Lemon Client</option>
       </select>      
     </div>
     <button class="play" id="play">PLAY</button>
@@ -165,20 +179,23 @@
     }
     
     function invisibletab(loc) {
-      valueChange();
-      var url = loc
-      var win;
-      win = window.open();
-      win.document.body.style.margin = "0";
-      win.document.body.style.height = "100vh";
-      var iframe = win.document.createElement("iframe");
-      iframe.style.border = "none";
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.margin = "0";
-      iframe.src = url;
-      win.document.body.appendChild(iframe);
-    } 
+        valueChange();
+        var url = loc
+        var win;
+        win = window.open();
+        win.document.body.style.margin = "0";
+        win.document.body.style.height = "100vh";
+        var iframe = win.document.createElement("iframe");
+        var code = win.document.createElement("script");
+        code.innerHTML = "const interval = setInterval(function() {document.querySelector('iframe').focus()}, 5000);";
+        iframe.style.border = "none";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.margin = "0";
+        iframe.src = url;
+        win.document.body.appendChild(iframe);
+        win.document.body.appendChild(code);
+    }
     
     //Hides Texture Pack If Not Available
     function checkPack() {
@@ -189,12 +206,7 @@
         document.getElementById('Pack1').style.display = 'none';
       } else {document.getElementById('Pack').style.display = 'block';document.getElementById('Pack1').style.display = 'block';}
     }
-      var client1 = document.getElementById('Client').value;
-      
-      if ( (client1 == 'clients/singleplayer/1-5-2/default/index.html') || (client1 == 'clients/multiplayer/1-5-2/texture-fix/texture-fix.html') ) {
-        document.getElementById('Pack').style.display = 'none';
-        document.getElementById('Pack1').style.display = 'none';
-      } else {document.getElementById('Pack').style.display = 'block';document.getElementById('Pack1').style.display = 'block';}
+    checkPack()();
   </script>
 </body>
 </html>
