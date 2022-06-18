@@ -2,50 +2,199 @@
 <html>
 <head>
   <style>
-    .sidebar {
-      background-color: #1e1e1e;
-      width: 150px;
-      height: 100vh;
+    .content img {
+      background-color: lightgrey;
+      width: 100%;
+      height: 89.5%;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      overflow: hidden;
+    }
+    .topbar {
+      background-color: #282828;
+      width: 96.7%;
+      height: 70px;
+      margin: auto;
       position: absolute;
       top: 0;
       left: 0;
-      z-index: -1;
+      z-index: 1;
+      float: left;
+      padding: 3px 20px;
     }
-
-    .content {
-      background-color: lightgrey;
-      width: 89vw;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 150px;
-      z-index: -1;
-      overflow: hidden;
+    .topbaroptions1 {
+      color: darkgrey;
+      border-bottom: 5px solid green;
+      font-size: 20px;
+      background-color: #282828;
+      border-top: 1px solid #282828;
+      border-left: 1px solid #282828;
+      border-right: 1px solid #282828;
     }
-    .button {
-      height:45px;
-      width: 150px;
-      border: none;
-      background-color: #1e1e1e;
+    .topbaroptions2 {
+      color: darkgrey;
+      border-bottom: 5px solid white;
+      font-size: 20px;
+      background-color: #282828;
+      border-top: 1px solid #282828;
+      border-left: 1px solid #282828;
+      border-right: 1px solid #282828;
+    }
+    .title {
       color: white;
+      font-size: 25px;
+    }
+    #playBar {
+      padding: 10px;
+      z-index: 12;
+      position: absolute;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+      right: 0;
+      height: 70px;
+      width: 95%;
+      background-color: #282828;
+      color: white;
+      font-size: 16px;
+    }
+    #Client {
+      width: 220px;
+      height: 50%;
+      background-color: #282828;
+      opacity: 0.90;
+      border: none;
+      color: white;
+      font-size: 20px;
+      float: left;
+    }
+    #Pack {
+      width: 210px;
+      height: 50%;
+      background-color: #282828;
+      opacity: 0.90;
+      border: none;
+      color: white;
+      font-size: 20px;
+      float: right;
+    }
+    .play {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 400px;
+      height: 100px;
+      border-radius: 20px;
+      opacity: 1;
+      background-color: green;
+      border: 5px solid darkgreen;
+      color: white;
+      font-size: 50px;
+      z-index: 13;
     }
   </style>
 </head>
-<body style="">
+<body>
   
-  <div class="sidebar">
-    <img src='images/icon.png' style="width:80%; margin: auto; padding: 15px;">
-    <br>
-    
-    <button class="button">
-      <img src='images/mc-icon.png' style="width:35px; float: left;">
-      <a style="font-size: 16px;"><strong>Minecraft<br>1.5.2</strong></a>
+  <div class="topbar">
+    <a class="title"><strong>MINECRAFT: 1.5.2</strong></a><br>
+    <button class="topbaroptions1">
+      <strong>Play</strong>
     </button>
-    
   </div>
-  
-  <iframe class="content" src="pages/index/1-5-2/play.html" frameborder="0"></iframe>
+  <div class="content">
+    <img src="../../../images/mc-logo-1-5-2.png">
+    
+    <div id="playBar" style="opacity: 0.90;">
+      <a style="font-size: 20px; float: left;">Client:</a>
+      <a style="font-size: 20px; float: right;" id="Pack1">Texture Pack:</a>
+      <br><br>
+      <select name="Client" id="Client" onchange="checkPack()">
+        <option value="clients/multiplayer/1-5-2/Default/index.html">Default Multiplayer</option>
+        <option value="clients/multiplayer/1-5-2/texture-fix/texture-fix.html">Multiplayer Texture Fix</option>
+        <option value="clients/singleplayer/1-5-2/default/index.html">Default Singleplayer</option>
+      </select>
+      
+      <select name="Pack" id="Pack">
+        <option value="default-1.5.2.epk">Default 1.5.2</option>
+        <option value="hypixel-pvp.epk">Hypixel Pvp</option>
+        <option value="batClient.epk">Bat Client</option>
+        <option value="tight.epk">Tight</option>
+        <option value="1.16.epk">1.16</option>
+        <option value="M1.16.epk">1.16 Modified</option>
+        <option value="1.16D.epk">1.16 Dark</option>
+        <option value="1.17.epk">1.17</option>
+        <option value="M1.17.epk">1.17 Modified</option>
+        <option value="1.17D.epk">1.17 Dark</option>
+        <option value="Rice.epk">Rice</option>
+        <option value="Miami.Private.epk">Miami</option>
+      </select>      
+    </div>
+    <button class="play" id="play">PLAY</button>
+  </div>
   <script>
+    //Save Previous Textures And Client
+    if (localStorage.getItem("1.5.2-latestClient") === null) {
+      localStorage.setItem("1.5.2-latestClient", "clients/multiplayer/1-5-2/Default/index.html");
+    };
+    
+    if (localStorage.getItem("1.5.2-latestPack") === null) {
+      localStorage.setItem("1.5.2-latestPack", "default-1.5.2.epk");
+    };
+    
+    document.getElementById('Client').value = localStorage.getItem("1.5.2-latestClient");
+    document.getElementById('Pack').value = localStorage.getItem("1.5.2-latestPack");
+    
+    
+    function valueChange() {
+      localStorage.setItem("1.5.2-latestClient", document.getElementById('Client').value);
+      localStorage.setItem("1.5.2-latestPack", document.getElementById('Pack').value);
+    }
+    
+    //Play Button Scripts
+    var playButton = document.getElementById('play');
+    playButton.addEventListener("click", playButtonClicked);
+    
+    function playButtonClicked() {
+      var client = document.getElementById('Client').value;
+      var pack = document.getElementById('Pack').value;
+      invisibletab(parent.window.location.href + client + '?pack=' + pack);
+    }
+    
+    function invisibletab(loc) {
+      valueChange();
+      var url = loc
+      var win;
+      win = window.open();
+      win.document.body.style.margin = "0";
+      win.document.body.style.height = "100vh";
+      var iframe = win.document.createElement("iframe");
+      iframe.style.border = "none";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.margin = "0";
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+    } 
+    
+    //Hides Texture Pack If Not Available
+    function checkPack() {
+      var client1 = document.getElementById('Client').value;
+      
+      if (client1 == 'clients/singleplayer/1-5-2/default/index.html') {
+        document.getElementById('Pack').style.display = 'none';
+        document.getElementById('Pack1').style.display = 'none';
+      } else {document.getElementById('Pack').style.display = 'block';document.getElementById('Pack1').style.display = 'block';}
+    }
+      var client1 = document.getElementById('Client').value;
+      
+      if ( (client1 == 'clients/singleplayer/1-5-2/default/index.html') || (client1 == 'clients/multiplayer/1-5-2/texture-fix/texture-fix.html') ) {
+        document.getElementById('Pack').style.display = 'none';
+        document.getElementById('Pack1').style.display = 'none';
+      } else {document.getElementById('Pack').style.display = 'block';document.getElementById('Pack1').style.display = 'block';}
   </script>
 </body>
 </html>
