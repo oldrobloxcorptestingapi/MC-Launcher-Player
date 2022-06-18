@@ -20,6 +20,7 @@
               title();
             function title() {
               if (window.location !== window.parent.location == true) {
+                document.title = "Minecraft 1.5.2";
                 parent.document.title = document.title;
                 var link = parent.document.querySelector("link[rel~='icon']");
                 if (!link) {
@@ -27,6 +28,6 @@
                   link.rel = 'icon';
                   parent.document.getElementsByTagName('head')[0].appendChild(link);
                 };
-                link.href = '../../../images/icon.png';
+                link.href = 'https://play.mc-launcher.gq/images/icon.png';
               };
             }
