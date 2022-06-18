@@ -60,7 +60,7 @@
       font-size: 16px;
     }
     #Client {
-      width: 210px;
+      width: 220px;
       height: 50%;
       background-color: #282828;
       opacity: 0.90;
@@ -114,6 +114,7 @@
       <br><br>
       <select name="Client" id="Client" onchange="checkPack()">
         <option value="clients/multiplayer/1-5-2/Default/index.html">Default Multiplayer</option>
+        <option value="clients/multiplayer/1-5-2/texture-fix/texture-fix.html">Multiplayer Texture Fix</option>
         <option value="clients/singleplayer/1-5-2/default/index.html">Default Singleplayer</option>
       </select>
       
@@ -183,14 +184,14 @@
     function checkPack() {
       var client1 = document.getElementById('Client').value;
       
-      if (client1 == 'clients/singleplayer/1-5-2/default/index.html') {
+      if ( (client1 == 'clients/singleplayer/1-5-2/default/index.html') || (client1 == 'clients/multiplayer/1-5-2/texture-fix/texture-fix.html') ) {
         document.getElementById('Pack').style.display = 'none';
         document.getElementById('Pack1').style.display = 'none';
       } else {document.getElementById('Pack').style.display = 'block';document.getElementById('Pack1').style.display = 'block';}
     }
       var client1 = document.getElementById('Client').value;
       
-      if (client1 == 'clients/singleplayer/1-5-2/default/index.html') {
+      if ( (client1 == 'clients/singleplayer/1-5-2/default/index.html') || (client1 == 'clients/multiplayer/1-5-2/texture-fix/texture-fix.html') ) {
         document.getElementById('Pack').style.display = 'none';
         document.getElementById('Pack1').style.display = 'none';
       } else {document.getElementById('Pack').style.display = 'block';document.getElementById('Pack1').style.display = 'block';}
