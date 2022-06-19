@@ -127,7 +127,6 @@
       <br><br>
       <select name="Client" id="Client" onchange="checkPack()">
         <option value="clients/multiplayer/1-5-2/Default/index.html">Default Multiplayer</option>
-        <option value="clients/multiplayer/1-5-2/texture-fix/texture-fix.html">Multiplayer Texture Fix</option>
         <option value="clients/singleplayer/1-5-2/default/index.html">Default Singleplayer</option>
       </select>
       
@@ -201,7 +200,7 @@
     function checkPack() {
       var client1 = document.getElementById('Client').value;
       
-      if ( (client1 == 'clients/singleplayer/1-5-2/default/index.html') || (client1 == 'clients/multiplayer/1-5-2/texture-fix/texture-fix.html') ) {
+      if ( (client1 == 'clients/singleplayer/1-5-2/default/index.html') ) {
         document.getElementById('Pack').style.display = 'none';
         document.getElementById('Pack1').style.display = 'none';
       } else {document.getElementById('Pack').style.display = 'block';document.getElementById('Pack1').style.display = 'block';}
