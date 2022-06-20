@@ -65,7 +65,7 @@
       color: white;
       font-size: 16px;
     }
-    #Client {
+    #pack {
       width: 220px;
       height: 50%;
       background-color: #282828;
@@ -74,16 +74,6 @@
       color: white;
       font-size: 20px;
       float: left;
-    }
-    #Pack {
-      width: 210px;
-      height: 50%;
-      background-color: #282828;
-      opacity: 0.90;
-      border: none;
-      color: white;
-      font-size: 20px;
-      float: right;
     }
     .play {
       position: absolute;
@@ -116,16 +106,23 @@
   </div>
   <div class="content">
     <img src="../../../images/mc-logo-classic.png">
-    
-    <button class="play" id="play">PLAY</button>
+    <div id="playBar" style="opacity: 0.90;">
+      <a style="font-size: 20px; float: left;">Texture Pack:</a>
+      <br><br>
+      <select name="Client" id="pack" onchange="checkPack()">
+        <option value="1">Default</option>
+        <option value="2">Bean</option>
+      </select>
   </div>
+  <button class="play" id="play">PLAY</button>
   <script>
     //Play Button Scripts
     var playButton = document.getElementById('play');
     playButton.addEventListener("click", invisibletab);
     
     function invisibletab() {
-        var url = parent.window.location.href + "/clients/singleplayer/classic/index.html";
+        var pack = document.getElementById('pack').value;
+        var url = parent.window.location.href + "/clients/singleplayer/classic/index.html?texture=" + pack;
         var win;
         win = window.open();
         win.document.body.style.margin = "0";
