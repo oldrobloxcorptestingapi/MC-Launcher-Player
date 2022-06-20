@@ -39,17 +39,27 @@
     <img src='images/icon.png' style="width:80%; margin: auto; padding: 15px;">
     <br>
     
-    <button class="button">
+    <button class="button" onclick="frame('pages/index/1-5-2/play.html')">
       <img src='images/mc-icon.png' style="width:35px; float: left;">
       <a style="font-size: 16px;"><strong>Minecraft<br>1.5.2</strong></a>
     </button>
     
+    <button class="button" onclick="frame('pages/index/classic/play.html')">
+      <img src='images/mc-icon.png' style="width:35px; float: left;">
+      <a style="font-size: 16px;"><strong>Minecraft<br>Classic</strong></a>
+    </button>
+    
   </div>
   
-  <iframe class="content" src="pages/index/1-5-2/play.html" frameborder="0"></iframe>
+  <iframe class="content" src="pages/index/1-5-2/play.html" frameborder="0" id="iframe"></iframe>
   <script>
     document.title = "Web MC Launcher";
     parent.document.title = document.title;
+    
+    function frame(loc) {
+      var iframe = document.getElementById('iframe');
+      iframe.src = loc;
+    }
   </script>
 </body>
 </html>
