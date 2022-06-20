@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .content img {
+      background-color: lightgrey;
+      width: 100%;
+      height: 89.5%;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      overflow: hidden;
+    }
+    .topbar {
+      background-color: #282828;
+      width: 96.7%;
+      height: 70px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      float: left;
+      padding: 3px 20px;
+    }
+    .topbaroptions1 {
+      color: darkgrey;
+      border-bottom: 5px solid green;
+      font-size: 20px;
+      background-color: #282828;
+      border-top: 1px solid #282828;
+      border-left: 1px solid #282828;
+      border-right: 1px solid #282828;
+    }
+    .topbaroptions1:hover {
+      color: grey;
+    }
+    .topbaroptions2 {
+      color: darkgrey;
+      border-bottom: 5px solid white;
+      font-size: 20px;
+      background-color: #282828;
+      border-top: 1px solid #282828;
+      border-left: 1px solid #282828;
+      border-right: 1px solid #282828
+    }
+    .topbaroptions2:hover {
+      color: grey;
+    }
+    .title {
+      color: white;
+      font-size: 25px;
+    }
+    #playBar {
+      padding: 10px;
+      z-index: 12;
+      position: absolute;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+      right: 0;
+      height: 70px;
+      width: 95%;
+      background-color: #282828;
+      color: white;
+      font-size: 16px;
+    }
+    #Client {
+      width: 220px;
+      height: 50%;
+      background-color: #282828;
+      opacity: 0.90;
+      border: none;
+      color: white;
+      font-size: 20px;
+      float: left;
+    }
+    #Pack {
+      width: 210px;
+      height: 50%;
+      background-color: #282828;
+      opacity: 0.90;
+      border: none;
+      color: white;
+      font-size: 20px;
+      float: right;
+    }
+    .play {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 400px;
+      height: 100px;
+      border-radius: 20px;
+      opacity: 1;
+      background-color: green;
+      border: 5px solid darkgreen;
+      color: white;
+      font-size: 50px;
+      z-index: 13;
+    }
+    .right {float: right;}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="title"><strong>MINECRAFT CLASSIC</strong></a><br>
+    
+    <button class="topbaroptions1">
+      <strong>Play</strong>
+    </button>
+    
+    
+  </div>
+  <div class="content">
+    <img src="../../../images/mc-logo-classic.png">
+    
+    <button class="play" id="play">PLAY</button>
+  </div>
+  <script>
+    //Play Button Scripts
+    var playButton = document.getElementById('play');
+    playButton.addEventListener("click", invisibletab);
+    
+    function invisibletab() {
+        var url = parent.window.location.href + "/clients/singleplayer/classic/index.html";
+        var win;
+        win = window.open();
+        win.document.body.style.margin = "0";
+        win.document.body.style.height = "100vh";
+        var iframe = win.document.createElement("iframe");
+        var code = win.document.createElement("script");
+        code.innerHTML = "const interval = setInterval(function() {document.querySelector('iframe').focus()}, 5000);";
+        iframe.style.border = "none";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.margin = "0";
+        iframe.src = url;
+        win.document.body.appendChild(iframe);
+        win.document.body.appendChild(code);
+    }
+    </script>
+  </body>
+</html>
