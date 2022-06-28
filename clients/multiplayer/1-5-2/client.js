@@ -1,5 +1,4 @@
-                var packk = (new window.URL(window.location.href)).searchParams.get('pack');
-                if (packk === null) {var pack = "/packs/default-1.5.2.epk";} else {var pack = "/packs/" + packk;}
+                if ((new window.URL(window.location.href)).searchParams.get('pack') == null) {var pack = "/packs/default-1.5.2.epk";} else {var pack = "/packs/" + (new window.URL(window.location.href)).searchParams.get('pack');}
                 
                 var name="",motd="aa",ip="";
                 window.addEventListener("load", function () {
